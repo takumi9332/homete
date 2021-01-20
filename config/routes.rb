@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'posts#index'
+  resources :posts do
+    resources :praises, only: [:create, :destroy, :edit, :update]
+  end
   resources :users, only: [:edit, :update, :show]
-  resources :posts
 end

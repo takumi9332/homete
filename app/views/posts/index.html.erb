@@ -1,0 +1,19 @@
+<div class="contents row">
+  <ul class="post_lists">
+    <% @posts.each do |post| %>
+      <li class="post_list">
+        <%= link_to user_path(post.user_id) do %>
+          <%= attachment_image_tag post.user, :image, fallback: "no_image.jpg", class: "user_image" %>
+          <b><%= post.user.name %></b>
+        <% end %>
+        さんが
+        <%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
+        に投稿
+        <%= link_to post_path(post.id) do %>
+          <div class="post_title"><%= post.title %></div>
+          <div class="post_text"><%= post.text.truncate(30) %></div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>

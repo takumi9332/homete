@@ -1,0 +1,65 @@
+<div class="contents row">
+  <div class="container">
+    <div class="show-post">
+      <div>投稿者</div>
+      <%= attachment_image_tag @post.user, :image, fallback: "no_image.jpg", class: "user_image" %>
+      <%= @post.user.name %>
+      
+
+      <div><br>タイトル</div>
+      <%= @post.title %>
+
+      <div><br>本文</div>
+      <%= safe_join(@post.text.split("\n"),tag(:br)) %>
+
+    </div>
+
+    <% if user_signed_in? %>
+      <% if current_user.id == @post.user_id %>
+        <div class="edit_destroy">
+          <%= link_to edit_post_path, method: :get, class: "post-edit" do %>
+          <i class="far fa-edit fa-2x"></i>
+          <% end %>
+          <%= link_to post_path, method: :delete, data:{confirm:'削除しますか?'}, class: "post-destroy" do %>
+          <i class="far fa-trash-alt fa-2x"></i>
+          <% end %>
+        </div>
+      <% end %>
+
+      <% if current_user.id != @post.user_id %>
+        <div class="container">
+          <h4>Praise</h4>
+          <%= form_with(model: [@post, @praise], local: true) do |f| %>
+            <%= f.text_area :text, placeholder: "1000文字まで", rows: "6", maxlength:"1000" %>
+            <%= f.submit "SEND", class: "button is-success" %>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+
+    <div class="praises">
+      <% if @praises %>
+        <br><h4>Praise一覧</h4>
+        <% @praises.each do |praise| %>
+          <p>
+            <strong>
+              <%= attachment_image_tag praise.user, :image, fallback: "no_image.jpg", class: "user_image" %>
+              <%= link_to praise.user.name, "/users/#{praise.user_id}" %>
+            </strong>
+            <% if user_signed_in? %>
+              <% if praise.user_id == current_user.id %>
+                <%= link_to edit_post_praise_path(post_id: @post.id, id: praise.id) do %>
+                <i class="fas fa-edit"></i>
+                <% end %>
+                <%= link_to post_praise_path(post_id: @post.id, id: praise.id) , method: :delete, data:{confirm:'削除しますか?'} do %>
+                <i class="fas fa-trash-alt"></i>
+                <% end %>
+              <% end %>
+            <% end %>
+            <br><%= safe_join(praise.text.split("\n"),tag(:br)) %>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

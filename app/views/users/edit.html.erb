@@ -1,0 +1,34 @@
+<div class="contents row">
+  <div class="container">
+    <h3>ユーザー編集</h3>
+    <%= form_with model:@user, local:true do |f| %>
+
+    <%= render 'shared/error_messages', model: f.object %>
+
+    <div class="user-edit">
+      <div class="field">
+        <%= f.label :name, "名前", class: "label" %>
+        <%= f.text_field :name, class: "input", placeholder:"6文字まで", maxlength:"6" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email, "メールアドレス", class: "label" %>
+        <%= f.email_field :email, class: "input" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :self_introduction, "自己紹介", class: "label" %>
+        <%= f.text_area :self_introduction, class: "textarea", placeholder:"200文字まで", maxlength:"200" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :image, "プロフィール画像", class: "label" %>
+        <%= f.attachment_field :image, class: "input" %>
+      </div>
+
+      <%= f.submit "UPDATE", class: "button is-success" %>
+    </div>
+
+    <% end %>
+  </div>
+</div>

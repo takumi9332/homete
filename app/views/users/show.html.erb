@@ -1,1 +1,32 @@
-<%= link_to "編集", edit_user_registration_path, class: "post" %>
+<div class="my_post">
+  <p>
+    <%= attachment_image_tag @user, :image, fallback: "no_image.jpg", class: "user_image_top" %>
+    <%= @name %>さんのマイページ
+  </p>
+
+  <div class="my_self_introduction">
+    <p>自己紹介</p>
+    <%= safe_join(@user.self_introduction.split("\n"),tag(:br)) %>
+  </div>
+
+  <ul class="post_lists">投稿一覧
+    <% @posts.each do |post| %>
+      <li class="post_list">
+        <%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
+        に投稿
+        <%= link_to post_path(post.id) do %>
+          <div class="post_title"><%= post.title %></div>
+          <div class="post_text"><%= post.text.truncate(30) %></div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+
+  <div class="account_edit">
+    <% if current_user == @user %>
+      <%= link_to edit_user_path(@user), class: "button is-primary" do %>
+      <i class="fas fa-user-edit fa-2x"></i>
+      <% end %>
+    <% end %>
+  </div>
+</div>

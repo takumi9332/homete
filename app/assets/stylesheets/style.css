@@ -1057,3 +1057,28 @@ footer p {
 .search-form .search-btn {
   width: 10%;
 }
+
+/* アカウント画像 */
+.user_image{
+  width: 40px;
+  height: 40px;
+}
+.user_image_top{
+  width: 30px;
+  height: 30px;
+}
+
+/* post.index */
+.post_lists{
+  margin: 40px 0 0 40px;
+}
+.post_list{
+  margin-top: 15px;
+  background-color: wheat;
+}
+.post_title{
+  font-size: large;
+}
+.post_text{
+  font-size: small;
+}

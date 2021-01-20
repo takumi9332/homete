@@ -1,0 +1,9 @@
+<div class="contents row">
+  <div class="container">
+    <h3>Praisesを編集する</h3>
+    <%= form_with(model: @praise, url: post_praise_path, local: true) do |f| %>
+      <%= f.text_area :text, placeholder: "1000文字まで", rows: "6", maxlength:"1000" %>
+      <%= f.submit "CHANGE", class: "button is-success" %>
+    <% end %>
+  </div>
+</div>

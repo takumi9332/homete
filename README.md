@@ -8,6 +8,7 @@
 | email              | string  | null: false, unique: true |
 | encrypted_password | string  | null: false               |
 | self_introduction  | text    |                           |
+| image              | string  |                           |
 
 ### Association
 - has_many :posts
