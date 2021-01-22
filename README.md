@@ -1,3 +1,17 @@
+# Homete
+
+## 概要
+自分の努力したことを褒めてもらうアプリ
+
+### URL
+
+### 機能一覧
+
+### 使用している技術一覧
+
+### 制作背景
+自分が何か頑張っているときに、人に褒めてもらうことで頑張れることがあった。その経験から何か頑張っていることをアウトプットする場を作り、それを褒めてもらうシステムを作ることができたらいいなと思い制作した。褒める側にも何かメリットがないといけないので、そこで褒めてもらう側が設定した金額を、一番褒めるのが上手だった人に渡すという機能を設けた。そのことにより褒める側も自分が一番上手く褒めれるように努力をするので、双方にとって金額以上のメリットがもたらせるのではないかと考えた。
+
 # テーブル設計
 
 ## users テーブル
@@ -76,11 +90,11 @@
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
 | user   | references | null: false, foreign_key: true |
-| post   | references | null: false, foreign_key: true |
+| praise   | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
-- belongs_to :post
+- belongs_to :praise
 
 
 ## point_histories テーブル

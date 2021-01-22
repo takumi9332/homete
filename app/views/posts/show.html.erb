@@ -55,6 +55,7 @@
                 <i class="fas fa-trash-alt"></i>
                 <% end %>
               <% end %>
+              <%= render "bests/best", praise: praise %>
             <% end %>
             <br><%= safe_join(praise.text.split("\n"),tag(:br)) %>
           </p>

@@ -1082,3 +1082,9 @@ footer p {
 .post_text{
   font-size: small;
 }
+
+/* アイコン */
+.fa-pink:before
+{
+  color: pink;
+}

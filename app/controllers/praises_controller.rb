@@ -1,7 +1,8 @@
 class PraisesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_post, only: [:create, :destroy]
   before_action :set_praise, only: [:destroy, :edit, :update]
-  before_action :authenticate_user!
+
 
   def create
     praise = Praise.create(praise_params)

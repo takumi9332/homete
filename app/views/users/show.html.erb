@@ -6,7 +6,9 @@
 
   <div class="my_self_introduction">
     <p>自己紹介</p>
-    <%= safe_join(@user.self_introduction.split("\n"),tag(:br)) %>
+    <% if @user.self_introduction %>
+      <%= safe_join(@user.self_introduction.split("\n"),tag(:br)) %>
+    <% end %>
   </div>
 
   <ul class="post_lists">投稿一覧

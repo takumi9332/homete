@@ -1,0 +1,9 @@
+<% if current_user.id == @post.user_id %>
+  <% if !Best.exists?(praise: praise, post: @post) %>
+    <%= link_to post_praise_bests_path(@post.id, praise.id), method: :post, data:{confirm:'本当によろしいですか?'}, class: "best-btn" do%>
+      <i class="far fa-heart fa-lg"></i>
+    <% end %>
+  <% else %>
+    <i class="fas fa-heart fa-lg fa-pink"></i>
+  <% end %>
+<% end %>
