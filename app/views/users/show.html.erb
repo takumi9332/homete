@@ -4,6 +4,8 @@
     <%= @name %>さんのマイページ
   </p>
 
+  <%= render "likes/follow", user: @user %>
+
   <div class="my_self_introduction">
     <p>自己紹介</p>
     <% if @user.self_introduction %>

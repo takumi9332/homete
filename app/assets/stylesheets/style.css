@@ -1088,3 +1088,11 @@ footer p {
 {
   color: pink;
 }
+
+/* ユーザーお気に入り */
+.follow{
+  color: blue;
+}
+.unfollow{
+  color: blue;
+}

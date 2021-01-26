@@ -77,12 +77,14 @@
 
 ## likes テーブル
 
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| user   | references | null: false, foreign_key: true |
+| Column | Type       | Options                                        |
+| ------ | ---------- | ---------------------------------------------- |
+| user   | references | null: false, foreign_key: true                 |
+| follow | references | null: false, foreign_key: { to_table: :users } |
 
 ### Association
 - belongs_to :user
+- belongs_to :follow, class_name: 'User'
 
 
 ## bests テーブル
@@ -90,11 +92,13 @@
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
 | user   | references | null: false, foreign_key: true |
-| praise   | references | null: false, foreign_key: true |
+| praise | references | null: false, foreign_key: true |
+| post   | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
 - belongs_to :praise
+- belongs_to :post
 
 
 ## point_histories テーブル
