@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_many :followings, through: :likes, source: :follow
   has_many :reverse_of_likes, class_name: 'Like', foreign_key: 'follow_id'
   has_many :followers, through: :reverse_of_likes, source: :user
+  has_many :point_histories
+  has_many :user_points
 
   validates :name, presence: true, length: { maximum: 6 }
   validates :self_introduction, length: { maximum: 200 }

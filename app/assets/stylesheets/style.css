@@ -1091,8 +1091,8 @@ footer p {
 
 /* ユーザーお気に入り */
 .follow{
-  color: blue;
+  width: 12%;
 }
 .unfollow{
-  color: blue;
+  width: 12%;
 }
